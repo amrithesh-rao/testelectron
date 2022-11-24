@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <title>Hello from Electron renderer 1!</title>
+</head>
+
+<body>
+  <h1>Hello from Electron renderer 1!</h1>
+  <p>👋</p>
+  <form onsubmit="sendMessage()">
+    <input id="magic" />
+    <button type="submit">Send message to two</button>
+  </form>
+</body>
+<script type="text/javascript">
+  
+  console.log('renderer 1');
+  var message = "";
+
+  function sendMessage(e) {
+    e.preventDefault();
+    message = document.getElementById("magic").innerText;
+    console.log(message);
+    //ipcRenderer.send("receive-message", message);
+  }
+
+</script>
+
+</html>
